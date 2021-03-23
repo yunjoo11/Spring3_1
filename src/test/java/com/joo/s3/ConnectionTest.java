@@ -23,7 +23,7 @@ public class ConnectionTest extends MyAbstractTest {
 	
 	@Test
 	public void connectionTest() throws Exception{
-		assertNotNull(sqlSession.getConnection());
+		assertNotNull(sqlSession);
 	}
 	
 }
