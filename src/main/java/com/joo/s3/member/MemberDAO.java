@@ -31,7 +31,7 @@ public class MemberDAO {
 	public int memberJoin(MemberDTO memberDTO)throws Exception{
 		
 
-		return result;
+	
 		
 	}
 	
