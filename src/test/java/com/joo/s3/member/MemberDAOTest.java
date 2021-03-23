@@ -11,11 +11,11 @@ public class MemberDAOTest extends MyAbstractTest{
 
 	@Autowired
 	private MemberDAO memberDAO;
-	@Autowired
-	private MemberDTO memberDTO;
+	
 	
 	@Test
 	public void memberUpdateTest()throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id5");
 		memberDTO.setPw("pw5");
 		memberDTO.setName("id5");
@@ -28,6 +28,7 @@ public class MemberDAOTest extends MyAbstractTest{
 	
 	@Test
 	public void memberDeleteTest()throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id5");
 		int result = memberDAO.memberDelete(memberDTO);
 		
@@ -36,7 +37,7 @@ public class MemberDAOTest extends MyAbstractTest{
 	
 	@Test
 	public void memberJoinTest() throws Exception{
-//		MemberDTO memberDTO = new MemberDTO();
+		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id6");
 		memberDTO.setPw("pw6");
 		memberDTO.setName("id6");
@@ -50,7 +51,7 @@ public class MemberDAOTest extends MyAbstractTest{
 	
 	@Test
 	public void memberLoginTest() throws Exception{
-//		MemberDTO memberDTO = new MemberDTO();
+		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("iu");
 		memberDTO.setPw("pw1");
 		
