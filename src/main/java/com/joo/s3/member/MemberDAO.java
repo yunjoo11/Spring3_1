@@ -37,7 +37,7 @@ public class MemberDAO {
 	
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception{
 		
-		memberDTO=sqlSession.selectOne(NAMESPACE+"memberLogin", MemberDTO);
+		memberDTO=sqlSession.selectOne(NAMESPACE+"memberLogin", memberDTO);
 		
 		return memberDTO;
 	}
