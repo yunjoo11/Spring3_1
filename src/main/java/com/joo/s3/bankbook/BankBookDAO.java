@@ -18,6 +18,14 @@ public class BankBookDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.joo.s3.bankbook.BankBookDAO";
 	
+	public int setUpdate(BankBookDTO bankBookDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+".setUpdate", bankBookDTO);		
+	}
+	
+	public int setDelete(BankBookDTO bankBookDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"setDelete",bankBookDTO);
+	}
+	
 	public int setWrite(BankBookDTO bankBookDTO)throws Exception{
 		int result=sqlSession.insert(NAMESPACE+".setWrite", bankBookDTO);
 		return result;
@@ -25,7 +33,8 @@ public class BankBookDAO {
 
 
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO)throws Exception{
-		
+		//long num=1L;
+		bankBookDTO =sqlSession.selectOne(NAMESPACE+".getSelect", bankBookDTO);
 		
 		return bankBookDTO;
 
@@ -36,10 +45,7 @@ public class BankBookDAO {
 	//getList
 	//bankbook table의 모든 데이트 조회 후 리턴
 	public List<BankBookDTO> getList()throws Exception{
-		ArrayList<BankBookDTO> ar = new ArrayList<BankBookDTO>();
-
 		
-
-		return ar;
+		return sqlSession.selectList(NAMESPACE+".getList");
 	}
 }
