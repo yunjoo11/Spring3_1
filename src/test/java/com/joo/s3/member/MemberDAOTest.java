@@ -13,6 +13,20 @@ public class MemberDAOTest extends MyAbstractTest{
 	private MemberDAO memberDAO ;
 	
 	@Test
+	public void memberJoinTest() throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("id6");
+		memberDTO.setPw("pw6");
+		memberDTO.setName("id6");
+		memberDTO.setPhone("01011112222");
+		memberDTO.setEmail("id6@naver.com");
+		
+		int result= memberDAO.memberJoin(memberDTO);
+		
+		assertEquals(1, result);
+	}
+	
+	@Test
 	public void memberLoginTest() throws Exception{
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("iu");

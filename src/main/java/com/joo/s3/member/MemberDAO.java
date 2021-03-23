@@ -29,10 +29,8 @@ public class MemberDAO {
 
 	//memberJoin 데이터를 받아서 db에 insert하는 메서드
 	public int memberJoin(MemberDTO memberDTO)throws Exception{
-		
-
-	
-		
+		int result = sqlSession.insert(NAMESPACE+"memberJoin",memberDTO);
+		return result;		
 	}
 	
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception{
