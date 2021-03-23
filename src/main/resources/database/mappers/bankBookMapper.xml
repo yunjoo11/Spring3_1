@@ -6,7 +6,7 @@
     
 <mapper namespace="com.joo.s3.bankbook.BankBookDAO">
 	<insert id="setWrite" parameterType="com.joo.s3.bankbook.BankBookDTO">
-		insert into bankbook values(bank_seq.nextval, #{bookName}, #{bookRate}, #{bookSale})
+		insert into bankbook values(bankseq.nextval, #{bookName}, #{bookRate}, #{bookSale})
 	</insert>
 
 
