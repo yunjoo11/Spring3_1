@@ -21,7 +21,6 @@ public class BankBookDAO {
 	public int setWrite(BankBookDTO bankBookDTO)throws Exception{
 		int result=sqlSession.insert(NAMESPACE+".setWrite", bankBookDTO);
 		return result;
-
 	}
 
 
