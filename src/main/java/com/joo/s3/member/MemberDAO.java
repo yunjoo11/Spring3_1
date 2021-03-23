@@ -17,13 +17,11 @@ public class MemberDAO {
 	private final String NAMESPACE="com.joo.s3.member.MemberDAO";
 	
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
-		
-	
-		
+		return sqlSession.update(NAMESPACE+"memberUpdate", memberDTO);		
 	}	
 	
 	public int memberDelete(MemberDTO memberDTO)throws Exception{
-		
+		return sqlSession.delete(NAMESPACE+"memberDelete", memberDTO);
 		
 	}
 

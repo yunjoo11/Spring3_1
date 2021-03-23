@@ -23,7 +23,7 @@ public class MemberDAOTest extends MyAbstractTest{
 		
 		int result= memberDAO.memberJoin(memberDTO);
 		
-		assertEquals(1, result);
+		assertNotNull(result);
 	}
 	
 	@Test
