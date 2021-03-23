@@ -10,11 +10,33 @@ import com.joo.s3.MyAbstractTest;
 public class MemberDAOTest extends MyAbstractTest{
 
 	@Autowired
-	private MemberDAO memberDAO ;
+	private MemberDAO memberDAO;
+	@Autowired
+	private MemberDTO memberDTO;
+	
+	@Test
+	public void memberUpdateTest()throws Exception{
+		memberDTO.setId("id5");
+		memberDTO.setPw("pw5");
+		memberDTO.setName("id5");
+		memberDTO.setPhone("01011112222");
+		memberDTO.setEmail("id5@naver.com");
+		int result=memberDAO.memberUpdate(memberDTO);
+		
+		assertEquals(1,result);
+	}
+	
+	@Test
+	public void memberDeleteTest()throws Exception{
+		memberDTO.setId("id5");
+		int result = memberDAO.memberDelete(memberDTO);
+		
+		assertEquals(1, result);
+	}
 	
 	@Test
 	public void memberJoinTest() throws Exception{
-		MemberDTO memberDTO = new MemberDTO();
+//		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id6");
 		memberDTO.setPw("pw6");
 		memberDTO.setName("id6");
@@ -28,13 +50,13 @@ public class MemberDAOTest extends MyAbstractTest{
 	
 	@Test
 	public void memberLoginTest() throws Exception{
-		MemberDTO memberDTO = new MemberDTO();
+//		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("iu");
 		memberDTO.setPw("pw1");
 		
 		MemberDTO result=memberDAO.memberLogin(memberDTO);
 		
-		assertEquals(1, result);
+		assertNotNull(result);;
 	}
 	
 }
