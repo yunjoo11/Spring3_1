@@ -7,7 +7,7 @@
 <mapper namespace="com.joo.s3.bankbook.BankBookDAO">
 	
 	<update id="setUpdate" parameterType="com.joo.s3.bankbook.BankBookDTO">
-		update bankbook set bookname= #{bookName}, bookrate=#{bookRate} , booksale= #{bookSale} where booknumber= #{bookNumber};
+		update bankbook set bookname= #{bookName}, bookrate=#{bookRate} , booksale= #{bookSale} where booknumber= #{bookNumber}
 	
 	</update>
 
