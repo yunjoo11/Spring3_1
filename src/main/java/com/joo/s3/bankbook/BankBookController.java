@@ -28,7 +28,7 @@ public class BankBookController {
 		bankBookDTO= bankBookService.getSelect(bankBookDTO);
 		
 		mv.addObject("dto", bankBookDTO);
-		mv.setViewName("bankbookSelect");
+		mv.setViewName("bankbook/bankbookSelect");
 		return mv;
 	}
 	

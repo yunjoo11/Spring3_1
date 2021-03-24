@@ -6,7 +6,7 @@
  <configuration>
  	<typeAliases>
  		<typeAlias type="com.joo.s3.member.MemberDTO" alias="MemberDTO"/>
- 		<typeAlias type="com.joo.s3.BankBookDTO" alias="BankBookDTO"/>
+ 		<typeAlias type="com.joo.s3.bankbook.BankBookDTO" alias="BankBookDTO"/>
  	</typeAliases>
  
  	
