@@ -9,5 +9,6 @@
  		<typeAlias type="com.joo.s3.BankBookDTO" alias="BankBookDTO"/>
  	</typeAliases>
  
+ 	
  
  </configuration>
