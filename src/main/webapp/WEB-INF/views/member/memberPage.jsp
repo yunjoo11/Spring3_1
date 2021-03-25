@@ -14,9 +14,9 @@
 	<h3>${member.email}</h3>
 	<h3>${member.phone}</h3>
 	
+	<a href="../account/accountList">계좌관리</a><br>
 	<a href="./memberUpdate">수정</a><br>
-	<a href="./memberDelete">탈퇴</a><br>
-	<a href="">계좌관리</a>
+	<a href="./memberDelete">탈퇴</a>
 	
 </body>
 </html>
