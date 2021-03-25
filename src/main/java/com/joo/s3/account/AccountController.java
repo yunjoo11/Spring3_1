@@ -1,5 +1,7 @@
 package com.joo.s3.account;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AccountController {
 
 	@Autowired
-	AccountService accountService;
+	private AccountService accountService;
 	
 	@RequestMapping("accountList")
-	public void accountList()throws Exception {
-		
-	}
+	public void getList()throws Exception{}
+
 	
 }

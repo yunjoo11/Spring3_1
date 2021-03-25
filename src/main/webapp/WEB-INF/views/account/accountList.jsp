@@ -8,6 +8,10 @@
 </head>
 <body>
 	<h1>Account List Page</h1>
-	
+	<h3>${account.accountNumber}</h3>
+	<h3>${account.accountBalance}</h3>
+	<h3>${account.accountDate}</h3>
+	<h3>${account.id}</h3>
+	<h3>${account.bookNumber}</h3>
 </body>
 </html>
