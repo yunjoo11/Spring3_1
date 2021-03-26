@@ -15,12 +15,8 @@ public class AccountDAO {
 	private SqlSession sqlSession; //mapper의 위치를 알고있음
 	private final String NAMESPACE="com.joo.s3.account.AccountDAO.";
 
-
-	//계좌개설 데이터를 받아서 db에 insert하는 메서드
-	public int accountOpen(AccountDTO accountDTO)throws Exception{
-		int result = sqlSession.insert(NAMESPACE+"accountOpen",accountDTO);
-		return result;		
-	}
+	
+	
 
 	public List<AccountDTO> getList(AccountDTO accountDTO)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getList", accountDTO);
