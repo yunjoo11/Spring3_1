@@ -63,18 +63,6 @@
 		<p>Footer</p>
 	</div>
 	
-	<a href="./bankbook/bankbookList">BankBook List</a>
-
-	<c:if test="${empty member}">
-		<a href="./member/memberJoin">Join</a>
-		<a href="./member/memberLogin">Login</a>
-	</c:if>
-
-	<c:if test="${not empty member}">
-		<h3>${member.id} 님 환영 합니다</h3>
-		<a href="./member/memberPage">MyPage</a>
-		<a href="./member/memberLogout">Logout</a>
-	</c:if>
 
 </body>
 </html>

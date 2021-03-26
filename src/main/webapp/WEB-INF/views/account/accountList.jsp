@@ -16,19 +16,15 @@
 				<th>AccountNumber</th>
 				<th>Balance</th>
 				<th>Date</th>
-				<th>Id</th>
-				<th>BankBookNumber</th>
 			</tr>
 		</thead>
 		
 		<tbody>
-			<c:forEach items="${list}">
+			<c:forEach items="${list}" var="account">
 				<tr>
 					<td>${account.accountNumber}</td>
 					<td>${account.accountBalance}</td>
 					<td>${account.accountDate}</td>
-					<td>${account.id}</td>
-					<td>${account.bookNumber}</td>
 				</tr>	
 			</c:forEach>
 		</tbody>	
