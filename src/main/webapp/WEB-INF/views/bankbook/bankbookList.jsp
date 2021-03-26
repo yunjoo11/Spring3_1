@@ -11,17 +11,17 @@
 <title>BankBook</title>
 </head>
 <body>
-	<h1>BankBook List</h1>
-	
 	<c:import url="../template/header.jsp"></c:import>
 
-	<table>
-		<thead>
+	<div class="container">	
+		<h2>BankBook List</h2>
+
+		<table class="table">
+			<thead class="thead-dark">
 			<tr>
 				<th>Name</th>
 				<th>Rate</th>
 				<th>Sale</th>
-				<th><button>계좌개설</button></th>
 			</tr>		
 		</thead>
 		
@@ -36,6 +36,8 @@
 		</tbody>
 		
 	</table>
+	
+	</div>
 
 </body>
 </html>

@@ -25,12 +25,6 @@ public class AccountController {
 
 	}
 	
-	@RequestMapping(value="accountOpen", method=RequestMethod.POST)
-	public String memberJoin(AccountDTO accountDTO)throws Exception {
-		int result= accountService.accountOpen(accountDTO);
-		return "redirect:../";
-	}
-	
 	
 	@RequestMapping("accountList")
 	public void getList()throws Exception{}
