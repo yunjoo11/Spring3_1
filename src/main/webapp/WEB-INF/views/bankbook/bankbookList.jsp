@@ -4,11 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<c:import url="../template/bootStrap.jsp"></c:import>
+<title>BankBook</title>
 </head>
 <body>
 	<h1>BankBook List</h1>
+	
+	<c:import url="../template/header.jsp"></c:import>
 
 	<table>
 		<thead>
@@ -16,6 +21,7 @@
 				<th>Name</th>
 				<th>Rate</th>
 				<th>Sale</th>
+				<th><button>계좌개설</button></th>
 			</tr>		
 		</thead>
 		

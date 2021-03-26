@@ -6,6 +6,7 @@
     
 <mapper namespace="com.joo.s3.account.AccountDAO">
 
+
 	<select id="getList" parameterType="AccountDTO" resultType="AccountDTO">
 		select * from account where id=#{id}
 	</select>
