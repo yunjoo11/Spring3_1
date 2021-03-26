@@ -2,9 +2,10 @@ package com.joo.s3.account;
 
 
 
-import java.awt.List;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,7 @@ public class AccountService {
 		return accountDAO.setInsert(accountDTO);
 	}
 
-	
+	public List<AccountDTO> getList(AccountDTO accountDTO)throws Exception{
+		return accountDAO.getList(accountDTO);
+	}
 }
