@@ -14,27 +14,40 @@ public class MemberDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE="com.joo.s3.member.MemberDAO";
+	private final String NAMESPACE="com.joo.s3.member.MemberDAO.";
 	
-	public int memberUpdate(MemberDTO memberDTO)throws Exception{
-		return sqlSession.update(NAMESPACE+".memberUpdate", memberDTO);		
-	}	
-	
-	public int memberDelete(MemberDTO memberDTO)throws Exception{
-		return sqlSession.delete(NAMESPACE+".memberDelete", memberDTO);
+	//setFileInsert
+		public int setFileInsert(MemberFileDTO memberFileDTO)throws Exception{
+			return sqlSession.insert(NAMESPACE+"setFileInsert", memberFileDTO);
+		}
 		
-	}
-
-	//memberJoin 데이터를 받아서 db에 insert하는 메서드
-	public int memberJoin(MemberDTO memberDTO)throws Exception{
-		int result = sqlSession.insert(NAMESPACE+".memberJoin",memberDTO);
-		return result;		
-	}
-	
-	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception{
 		
-		memberDTO=sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);
+		public int memberUpdate(MemberDTO memberDTO)throws Exception{
+			//id를 제외하고 나머지 수정
+			return sqlSession.update(NAMESPACE+"memberUpdate", memberDTO);
+		}
 		
-		return memberDTO;
-	}
+		public int memberDelete(MemberDTO memberDTO)throws Exception{
+			return sqlSession.delete(NAMESPACE+"memberDelete", memberDTO);
+			
+		}
+		
+		//memberJoin 데이터를 받아서 DB에 insert 하는 메서드
+		public int memberJoin(MemberDTO memberDTO)throws Exception{
+			return sqlSession.insert(NAMESPACE+"memberJoin", memberDTO);
+		}
+		
+		
+		//login - id pw를 받아서 조회
+		public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
+			return sqlSession.selectOne(NAMESPACE+"memberLogin", memberDTO);
+		}
+		
+		public MemberFileDTO memberLoginFile(MemberDTO memberDTO)throws Exception{
+			return sqlSession.selectOne(NAMESPACE+"memberLoginFile", memberDTO);
+		}
+		
+		public MemberFileDTO getMemberFile(MemberDTO memberDTO)throws Exception{
+			return sqlSession.selectOne(NAMESPACE+"getMemberFile", memberDTO);
+		}
 }

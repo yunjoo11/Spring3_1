@@ -8,34 +8,35 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/member/**")
 public class MemberController {
+	
 	@Autowired
 	private MemberService memberService;
 	
 	@RequestMapping("memberUpdate")
-	public void memberUpdate()throws Exception{
-		
-		
-	}
+	public void memberUpdate()throws Exception{}
 	
-	@RequestMapping(value="memberUpdate", method=RequestMethod.POST)
-	public String memberUpdate(HttpSession session,MemberDTO memberDTO)throws Exception{
-		int result=memberService.memberUpdate(memberDTO);
+	@RequestMapping(value="memberUpdate", method = RequestMethod.POST)
+	public String memberUpdate(MemberDTO memberDTO, HttpSession session)throws Exception{
+		int result = memberService.memberUpdate(memberDTO);
 		
 		if(result>0) {
-		session.setAttribute("member", memberDTO);
+			session.setAttribute("member", memberDTO);
 		}
 		return "redirect:../";
 	}
 	
 	@RequestMapping("memberDelete")
 	public String memberDelete(HttpSession session)throws Exception{
-		MemberDTO memberDTO=(MemberDTO)session.getAttribute("member");
-		int result =memberService.memberDelete(memberDTO);
+		MemberDTO memberDTO =(MemberDTO)session.getAttribute("member");
+		int result = memberService.memberDelete(memberDTO, session);
+		
 		session.invalidate();
+		
 		return "redirect:../";
 	}
 	
@@ -50,26 +51,41 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
+	
 	@RequestMapping("memberLogin")
-	public void memberLogin()throws Exception{
-		
-	}
-	@RequestMapping(value="memberLogin", method=RequestMethod.POST)
+	public void memberLogin()throws Exception{}
+	
+	@RequestMapping(value="memberLogin", method = RequestMethod.POST)
 	public String memberLogin(MemberDTO memberDTO, HttpSession session)throws Exception{
-		memberDTO=memberService.memberLogin(memberDTO);
+		memberDTO = memberService.memberLogin(memberDTO);
 		System.out.println(memberDTO);
-		session.setAttribute("member", memberDTO);
-		return "redirect:../";
-	}
-	@RequestMapping("memberJoin")
-	public void memberJoin()throws Exception {
 		
+		session.setAttribute("member", memberDTO);
+		
+		return "redirect:../";
 	}
 	
-	@RequestMapping(value="memberJoin", method=RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO)throws Exception {
-		int result= memberService.memberJoin(memberDTO);
-		return "redirect:../";
+	@RequestMapping("memberJoinCheck")
+	public void memberJoinCheck()throws Exception{}
+	
+	@RequestMapping("memberJoin")
+	public void memberJoin()throws Exception{}
+	
+	@RequestMapping(value="memberJoin", method = RequestMethod.POST)
+	public String memberJoin(MemberDTO memberDTO,MultipartFile avatar,HttpSession session, Model model)throws Exception{
+		int result = memberService.memberJoin(memberDTO,avatar, session);
+		
+		String message = "회원가입 실패";
+		String path="./memberJoin";
+		
+		if(result>0) {
+			message ="회원 가입 성공";
+			path="../";
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", path);
+		return "common/commonResult";
 	}
 	
 }
